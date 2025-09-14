@@ -1,11 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="mx-auto p-5  min-h-screen">
+    <FButton label="Save User" color="warning"/>
+    <button
+      type="button"
+      class="bg-[#0D9488] px-2 py-1 rounded-4xl text-white hover:bg-green-600 active:bg-green-700"
+    >Login</button>
+  </div>
 </template>
 
 <style scoped></style>
