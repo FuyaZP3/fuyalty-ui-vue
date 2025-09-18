@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./src/components/FButton copy.vue')['default']
     FButton: typeof import('./src/components/FButton.vue')['default']
   }
 }
