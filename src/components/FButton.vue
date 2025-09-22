@@ -15,6 +15,11 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const emit = defineEmits<{
+  (e: 'click', event: MouseEvent): void
+}>()
+
 const attrs = useAttrs()
 
 const colors: Record<NonNullable<Props['color']>, Record<NonNullable<Props['variant']>, Record<Status, string>>> = {
@@ -146,6 +151,13 @@ const sizes: Record<NonNullable<Props['size']>, string> = {
   lg: 'px-6 py-3 text-lg'
 }
 
+const handleClick = (e: MouseEvent) => {
+  if(props.disabled) return
+  
+  console.log('click')
+  emit('click', e)
+}
+
 const classes = computed(() => {
   const baseClasses = 'inline-flex justify-center align-middle items-center px-4 py-2 rounded-md'
 
@@ -168,6 +180,7 @@ const classes = computed(() => {
 <template>
   <button
     :class="classes"
+    @click="handleClick"
   >
     <span>
       <slot>{{ label }}</slot>
